@@ -1,0 +1,96 @@
+/*
+1행~11행 전체
+*/
+.middle-parking-lot {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 1px;
+    margin: 0 auto;
+    width: fit-content;
+    position: relative;
+    background-color: black;
+}
+
+/*
+0행, 12행 전체
+*/
+.edge-parking-lot {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 1px;
+    margin: 0 auto;
+    width: fit-content;
+    position: relative;
+    background-color: black;
+}
+
+.grid-row {
+    display: contents;
+}
+
+/*
+1행~11행 사이 블록 박스 (이동 공간 1개 or 주차 공간 8개)
+*/
+.middle-block-section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 44px;
+    height: 44px;
+}
+
+/*
+0행, 12행 블록 박스 (주차 공간 4개)
+*/
+.edge-block-section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1px;
+    width: 44px;
+    height: 22px;
+    background-color: black;
+}
+
+/*
+이동 공간 section(이동 공간 1개)
+ */
+.moving-section {
+    background-color: #00aaff;
+}
+
+/*
+주차 공간 section(주차 공간 8개)
+ */
+.parking-section {
+    background-color: rgba(253, 253, 253, 0);
+}
+
+/*
+middle-block-section, edge-block-section 내에 존재하는
+인라인 블록 박스(주차 공간 1개)
+*/
+.inline-block-parking-space {
+    width: 10px;
+    height: 20px;
+    position: relative;
+    background-color: #808080FF;
+}
+
+.entrance, .exit {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.entrance {
+    left: 0;
+    transform: none;
+}
+
+.exit {
+    right: 0;
+    left: auto;
+    transform: none;
+}
