@@ -17,7 +17,7 @@ const ParkingLot = () => {
                         for (let k = 1; k <= 8; k++) {
                             section.push(<div key={`${i}-${j}-${k}`} className="inline-block-parking-space"></div>);
                         }
-                        row.push(<div key={`${i}-${j}`} className="edge-block-section">{section}</div>);
+                        row.push(<div key={`${i}-${j}`} className="middle-block-section parking-section">{section}</div>);
                     } else {
                         row.push(<div key={`${i}-${j}`} className="middle-block-section moving-section"></div>);
                     }
