@@ -1,10 +1,28 @@
+/*.park-button {*/
+/*    margin-top: 20px;*/
+/*    padding: 10px 20px;*/
+/*    font-size: 16px;*/
+/*    background-color: #00aaff;*/
+/*    border: none;*/
+/*    color: white;*/
+/*    cursor: pointer;*/
+/*    border-radius: 5px;*/
+/*}*/
+
 .park-button {
-    margin-top: 20px;
-    padding: 10px 20px;
+    background-color: #4CAF50; /* Green background */
+    border: none; /* Remove border */
+    color: white; /* White text color */
+    padding: 15px 32px; /* Padding */
+    text-align: center; /* Center the text */
+    text-decoration: none; /* Remove underline */
+    display: inline-block;
     font-size: 16px;
-    background-color: #00aaff;
-    border: none;
-    color: white;
-    cursor: pointer;
-    border-radius: 5px;
+    margin: 4px 2px;
+    cursor: pointer; /* Change cursor to pointer when hovering over the button */
+    transition-duration: 0.4s; /* Transition effect */
+}
+
+.park-button:hover {
+    background-color: #45a049; /* Change background color when hovering */
 }
