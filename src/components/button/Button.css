@@ -26,3 +26,8 @@
 .park-button:hover {
     background-color: #45a049; /* Change background color when hovering */
 }
+
+.park-button:disabled {
+    background-color: #cccccc; /* Change background color to gray */
+    cursor: default; /* Change cursor to default */
+}
