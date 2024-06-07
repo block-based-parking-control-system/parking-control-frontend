@@ -1,4 +1,5 @@
-import React, {useEffect, useState, useRef} from 'react';
+import React, {useEffect, useState, useRef, useContext} from 'react';
+import {RouteContext} from '../context/RouteContext';
 import './Button.css';
 
 const EntranceOrExit = () => {
@@ -6,6 +7,8 @@ const EntranceOrExit = () => {
     const [buttonText, setButtonText] = useState('입차'); //버튼의 텍스트 관리
     const [buttonDisabled, setButtonDisabled] = useState(false); // 버튼의 활성화 상태 관리
     const buttonTextRef = useRef(buttonText); // buttonText 상태의 최신 값을 참조하는 ref
+
+    const {updateRoute, updateParkingSpace, updateLocation, resetRoute} = useContext(RouteContext);
 
     const handleClick = () => {
         if (!sse) {
@@ -37,6 +40,9 @@ const EntranceOrExit = () => {
                     });
                     const parkingSpaceKey = `${parkingSpace.section.x}-${parkingSpace.section.y}-${parkingSpace.index}`
 
+                    updateRoute(entranceRouteKeyList);
+                    updateParkingSpace(parkingSpaceKey)
+
                     console.log(`입차 초기 데이터: ${entranceRouteKeyList}, ${parkingSpaceKey}`);
                 } else if (data.type === 2) {
                     const exitRoute = data.data.exitRoute;
@@ -44,6 +50,9 @@ const EntranceOrExit = () => {
                     const exitRouteKeyList = exitRoute.map((point) => {
                         return `${point.x}-${point.y}`;
                     });
+
+                    updateRoute(exitRouteKeyList);
+
                     console.log(`출차 초기 데이터: ${exitRouteKeyList}`);
                 } else if (data.type === 3) {
                     const location = data.data.location;
@@ -51,6 +60,9 @@ const EntranceOrExit = () => {
                     const locationKeyList = location.map((point) => {
                         return `${point.x}-${point.y}`;
                     });
+
+                    updateLocation(locationKeyList);
+
                     console.log(`현재 위치: ${locationKeyList}`);
                 } else if (data.type === 4) {
                     console.log("입출차완료");
@@ -64,6 +76,8 @@ const EntranceOrExit = () => {
                 } else {
                     console.error("Error occurred: ", event);
                 }
+
+                resetRoute();
 
                 eventSource.close();
                 setSse(null);

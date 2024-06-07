@@ -1,11 +1,28 @@
-import React from 'react';
+import React, {useContext, useState} from 'react';
+import {RouteContext} from "../context/RouteContext";
 import './ParkingLot.css'
 
 const ParkingLot = () => {
     const rows = 11;
     const cols = 7;
 
-    const createMiddleParkingSpace = () => {
+    const {routeKeyList, parkingSpaceKey, locationKeyList} = useContext(RouteContext);
+
+    const getSpaceClassName = (key) => {
+        if (!routeKeyList.includes(key) && !locationKeyList.includes(key)) {
+            return 'moving-section';
+        } else if (locationKeyList.includes(key)) {
+            return 'current-location';
+        } else { //routeKeyList.includes(key)
+            return 'entrance-route';
+        }
+    }
+
+    const isParkingSpace = (key) => {
+        return parkingSpaceKey === key;
+    }
+
+    const createMiddleParkingLot = () => {
         let grid = [];
         for (let i = 1; i <= rows; i++) {
             let row = [];
@@ -15,17 +32,24 @@ const ParkingLot = () => {
                     if ([1, 2, 4, 5].includes(j)) {
                         let section = [];
                         for (let k = 1; k <= 8; k++) {
-                            section.push(<div key={`${j}-${i}-${k}`} className="inline-block-parking-space"></div>);
+                            const key = `${j}-${i}-${k}`;
+                            section.push(<div key={key}
+                                              className={`inline-block-parking-space ${isParkingSpace(key) ? 'entrance-route' : 'parking-space'}`}></div>);
                         }
-                        row.push(<div key={`${j}-${i}`} className="middle-block-section parking-section">{section}</div>);
+                        row.push(<div key={`${j}-${i}`}
+                                      className="middle-block-section parking-section">{section}</div>);
                     } else {
-                        row.push(<div key={`${j}-${i}`} className="middle-block-section moving-section"></div>);
+                        const key = `${j}-${i}`;
+                        // console.log(`entranceRouteKeyList: ${entranceRouteKeyList}`)
+                        row.push(<div key={key}
+                                      className={`middle-block-section ${getSpaceClassName(key)}`}></div>);
                     }
 
                 }
             } else {
                 for (let j = 0; j < cols; j++) {
-                    row.push(<div key={`${j}-${i}`} className="middle-block-section moving-section"></div>);
+                    const key = `${j}-${i}`;
+                    row.push(<div key={key} className={`middle-block-section ${getSpaceClassName(key)}`}></div>);
                 }
             }
 
@@ -34,12 +58,14 @@ const ParkingLot = () => {
         return grid;
     };
 
-    const createUpperParkingSpace = () => {
+    const createUpperParkingLot = () => {
         let row = [];
         for (let i = 0; i < cols; i++) {
             let section = [];
             for (let j = 1; j <= 4; j++) {
-                section.push(<div key={`${i}-0-${j}`} className="inline-block-parking-space"></div>);
+                const key = `${i}-0-${j}`;
+                section.push(<div key={key}
+                                  className={`inline-block-parking-space ${isParkingSpace(key) ? 'entrance-route' : 'parking-space'}`}></div>);
             }
             row.push(<div key={`${i}-0`} className="edge-block-section">{section}</div>);
         }
@@ -47,12 +73,14 @@ const ParkingLot = () => {
         return row;
     }
 
-    const createLowerParkingSpace = () => {
+    const createLowerParkingLot = () => {
         let row = [];
         for (let i = 0; i < cols; i++) {
             let section = [];
             for (let j = 1; j <= 4; j++) {
-                section.push(<div key={`${i}-12-${j}`} className="inline-block-parking-space"></div>);
+                const key = `${i}-12-${j}`;
+                section.push(<div key={key}
+                                  className={`inline-block-parking-space ${isParkingSpace(key) ? 'entrance-route' : 'parking-space'}`}></div>);
             }
             row.push(<div key={`${i}-12`} className="edge-block-section">{section}</div>);
         }
@@ -63,13 +91,13 @@ const ParkingLot = () => {
     return (
         <div>
             <div className="edge-parking-lot">
-                {createUpperParkingSpace()}
+                {createUpperParkingLot()}
             </div>
             <div className="middle-parking-lot">
-                {createMiddleParkingSpace()}
+                {createMiddleParkingLot()}
             </div>
             <div className="edge-parking-lot">
-                {createLowerParkingSpace()}
+                {createLowerParkingLot()}
             </div>
         </div>
     );

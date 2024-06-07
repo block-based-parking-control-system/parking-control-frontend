@@ -58,6 +58,21 @@
 }
 
 /*
+예상 이동 경로
+ */
+.entrance-route {
+    background-color: yellow;
+}
+
+.current-location {
+    background-color: #4CAF50;
+}
+
+.parking-space {
+    background-color: #808080FF;
+}
+
+/*
 주차 공간 section(주차 공간 8개)
  */
 .parking-section {
@@ -72,7 +87,6 @@ middle-block-section, edge-block-section 내에 존재하는
     width: 10px;
     height: 20px;
     position: relative;
-    background-color: #808080FF;
 }
 
 .entrance, .exit {

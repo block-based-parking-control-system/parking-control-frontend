@@ -1,6 +1,6 @@
 import React from 'react';
 import './CarInfo.css';
-import carImage from './tesla-model-y.png'; // Add your car image to the project
+import carImage from '../../img/tesla-model-y.png'; // Add your car image to the project
 
 const CarInfo = () => {
     return (
