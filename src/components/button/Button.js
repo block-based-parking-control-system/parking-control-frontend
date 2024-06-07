@@ -27,7 +27,35 @@ const EntranceOrExit = () => {
 
             eventSource.onmessage = (event) => {
                 const data = JSON.parse(event.data);
-                console.log(data);
+
+                if (data.type === 1) {
+                    const entranceRoute = data.data.entranceRoute;
+                    const parkingSpace = data.data.parkingSpace;
+
+                    const entranceRouteKeyList = entranceRoute.map((point) => {
+                        return `${point.x}-${point.y}`;
+                    });
+                    const parkingSpaceKey = `${parkingSpace.section.x}-${parkingSpace.section.y}-${parkingSpace.index}`
+
+                    console.log(`입차 초기 데이터: ${entranceRouteKeyList}, ${parkingSpaceKey}`);
+                } else if (data.type === 2) {
+                    const exitRoute = data.data.exitRoute;
+
+                    const exitRouteKeyList = exitRoute.map((point) => {
+                        return `${point.x}-${point.y}`;
+                    });
+                    console.log(`출차 초기 데이터: ${exitRouteKeyList}`);
+                } else if (data.type === 3) {
+                    const location = data.data.location;
+
+                    const locationKeyList = location.map((point) => {
+                        return `${point.x}-${point.y}`;
+                    });
+                    console.log(`현재 위치: ${locationKeyList}`);
+                } else if (data.type === 4) {
+                    console.log("입출차완료");
+                }
+                //console.log(data);
             };
 
             eventSource.onerror = (event) => {
