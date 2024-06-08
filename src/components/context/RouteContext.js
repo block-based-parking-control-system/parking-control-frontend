@@ -6,8 +6,10 @@ export const RouteProvider = ({children}) => {
     const [routeKeyList, setRouteKeyList] = useState([]);
     const [parkingSpaceKey, setParkingSpaceKey] = useState('');
     const [locationKeyList, setLocationKeyList] = useState([]);
+    const [entranceSucceed, setEntranceSucceed] = useState(false);
 
     const updateRoute = (newEntranceRouteKeyList) => {
+        setParkingSpaceKey('');
         setRouteKeyList(newEntranceRouteKeyList);
     };
 
@@ -21,7 +23,9 @@ export const RouteProvider = ({children}) => {
 
     const resetRoute = () => {
         setRouteKeyList([]);
-        setParkingSpaceKey('');
+        if (parkingSpaceKey === '') {
+            setEntranceSucceed(true);
+        }
         setLocationKeyList([]);
     }
 
@@ -31,6 +35,7 @@ export const RouteProvider = ({children}) => {
                 routeKeyList,
                 parkingSpaceKey,
                 locationKeyList,
+                entranceSucceed,
                 updateRoute,
                 updateParkingSpace,
                 updateLocation,
