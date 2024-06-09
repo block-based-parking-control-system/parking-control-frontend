@@ -1,33 +1,27 @@
-/*.park-button {*/
-/*    margin-top: 20px;*/
-/*    padding: 10px 20px;*/
-/*    font-size: 16px;*/
-/*    background-color: #00aaff;*/
-/*    border: none;*/
-/*    color: white;*/
-/*    cursor: pointer;*/
-/*    border-radius: 5px;*/
-/*}*/
-
 .park-button {
-    background-color: #4CAF50; /* Green background */
+    width: 150px;
+    background-color: #7AEEF5; /* Green background */
     border: none; /* Remove border */
-    color: white; /* White text color */
-    padding: 15px 32px; /* Padding */
+    color: black; /* White text color */
+    font-weight: bold; /* Make the button text bold */
+    white-space: pre;
+    padding: 15px 0; /* Padding */
     text-align: center; /* Center the text */
     text-decoration: none; /* Remove underline */
     display: inline-block;
     font-size: 16px;
-    margin: 4px 2px;
+    margin: 20px 2px;
+    border-radius: 33px; /* Make the button corners round */
     cursor: pointer; /* Change cursor to pointer when hovering over the button */
-    transition-duration: 0.4s; /* Transition effect */
+    transition: background-color 0.4s; /* Transition effect */
 }
 
 .park-button:hover {
-    background-color: #45a049; /* Change background color when hovering */
+    background-color: #25e2ed; /* Change background color when hovering */
 }
 
 .park-button:disabled {
-    background-color: #cccccc; /* Change background color to gray */
+    opacity: 0.5;
+    background-color: #7AEEF5; /* Change background color to gray */
     cursor: default; /* Change cursor to default */
 }

@@ -1,4 +1,9 @@
 /*
+전체 주차장
+ */
+.parking-lot {}
+
+/*
 1행~11행 전체
 */
 .middle-parking-lot {
@@ -54,22 +59,22 @@
 이동 공간 section(이동 공간 1개)
  */
 .moving-section {
-    background-color: #00aaff;
+    background-color: #82D2F4;
 }
 
 /*
 예상 이동 경로
  */
 .entrance-route {
-    background-color: yellow;
+    background-color: #F0FF42;
 }
 
 .current-location {
-    background-color: #4CAF50;
+    background-color: #42FF55;
 }
 
 .parking-space {
-    background-color: #808080FF;
+    background-color: #D9D9D9;
 }
 
 /*

@@ -3,8 +3,13 @@ import {RouteContext} from '../context/RouteContext';
 import './Button.css';
 
 const EntranceOrExit = () => {
+    const entrance = '입          차';
+    const entranceProcessing = '입    차    중';
+    const exit = '출          차';
+    const exitProcessing = '출    차    중';
+
     const [sse, setSse] = useState(null);
-    const [buttonText, setButtonText] = useState('입차'); //버튼의 텍스트 관리
+    const [buttonText, setButtonText] = useState(entrance); //버튼의 텍스트 관리
     const [buttonDisabled, setButtonDisabled] = useState(false); // 버튼의 활성화 상태 관리
     const buttonTextRef = useRef(buttonText); // buttonText 상태의 최신 값을 참조하는 ref
 
@@ -13,12 +18,12 @@ const EntranceOrExit = () => {
     const handleClick = () => {
         if (!sse) {
             let eventSource;
-            if (buttonText === '입차') {
+            if (buttonText === entrance) {
                 eventSource = new EventSource('http://localhost:8080/api/car/entrance');
-                setButtonText('입차중');
+                setButtonText(entranceProcessing);
             } else {
                 eventSource = new EventSource('http://localhost:8080/api/car/exit');
-                setButtonText('출차중');
+                setButtonText(exitProcessing);
             }
 
             setSse(eventSource);
@@ -81,13 +86,13 @@ const EntranceOrExit = () => {
 
                 eventSource.close();
                 setSse(null);
-                setButtonText(buttonTextRef.current === '입차중' ? '출차' : '입차');
+                setButtonText(buttonTextRef.current === entranceProcessing ? exit : entrance);
                 setButtonDisabled(false);
             };
         } else {
             sse.close();
             setSse(null);
-            setButtonText(buttonTextRef.current === '입차중' ? '출차' : '입차');
+            setButtonText(buttonTextRef.current === entranceProcessing ? exit : entrance);
             setButtonDisabled(false);
         }
     };
@@ -105,9 +110,12 @@ const EntranceOrExit = () => {
     }, [buttonText]);
 
     return (
-        <button className="park-button" onClick={handleClick} disabled={buttonDisabled}>
-            {buttonText}
-        </button>
+        <div>
+            <button className="park-button" onClick={handleClick} disabled={buttonDisabled}>
+                {buttonText}
+            </button>
+            {([entranceProcessing, exitProcessing].includes(buttonText)) && <div>Processing...</div>}
+        </div>
     )
 }
 

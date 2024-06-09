@@ -99,7 +99,7 @@ const ParkingLot = () => {
     }
 
     return (
-        <div>
+        <div className="parking-lot">
             <div className="edge-parking-lot">
                 {createUpperParkingLot()}
             </div>
