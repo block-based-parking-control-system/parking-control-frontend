@@ -15,6 +15,9 @@ const EntranceOrExit = () => {
 
     const {updateRoute, updateParkingSpace, updateLocation, resetRoute} = useContext(RouteContext);
 
+    const [seconds, setSeconds] = useState(0);
+    const [intervalId, setIntervalId] = useState(null);
+
     const handleClick = () => {
         if (!sse) {
             let eventSource;
@@ -109,12 +112,25 @@ const EntranceOrExit = () => {
         buttonTextRef.current = buttonText; // buttonText 상태가 변경될 때마다 ref를 업데이트
     }, [buttonText]);
 
+    useEffect(() => {
+        if ([entranceProcessing, exitProcessing].includes(buttonText)) {
+            const id = setInterval(() => {
+                setSeconds((seconds) => seconds + 1);
+            }, 1000);
+            setIntervalId(id);
+        } else if (intervalId) {
+            clearInterval(intervalId);
+            setIntervalId(null);
+            setSeconds(0);
+        }
+    }, [buttonText]);
+
     return (
         <div>
             <button className="park-button" onClick={handleClick} disabled={buttonDisabled}>
                 {buttonText}
             </button>
-            {([entranceProcessing, exitProcessing].includes(buttonText)) && <div>Processing...</div>}
+            {([entranceProcessing, exitProcessing].includes(buttonText)) && <div>소요 시간: {seconds}초</div>}
         </div>
     )
 }
