@@ -1,7 +1,8 @@
 /*
 전체 주차장
  */
-.parking-lot {}
+.parking-lot {
+}
 
 /*
 1행~11행 전체
@@ -13,7 +14,7 @@
     margin: 0 auto;
     width: fit-content;
     position: relative;
-    background-color: black;
+    background-color: white;
 }
 
 /*
@@ -26,7 +27,7 @@
     margin: 0 auto;
     width: fit-content;
     position: relative;
-    background-color: black;
+    background-color: white;
 }
 
 .grid-row {
@@ -52,25 +53,25 @@
     grid-gap: 1px;
     width: 44px;
     height: 22px;
-    background-color: black;
+    background-color: white;
 }
 
 /*
 이동 공간 section(이동 공간 1개)
  */
 .moving-section {
-    background-color: #82D2F4;
+    background-color: rgba(130, 210, 244, 0.9);
 }
 
 /*
 예상 이동 경로
  */
 .entrance-route {
-    background-color: #F0FF42;
+    background-color: rgba(251, 38, 38, 0.9);
 }
 
 .current-location {
-    background-color: #42FF55;
+    background-color: rgba(66, 255, 85, 0.9);
 }
 
 .parking-space {
