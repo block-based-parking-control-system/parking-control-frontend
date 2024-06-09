@@ -6,9 +6,15 @@
 }
 
 .car-image {
-    width: 100px;
+    width: 170px;
     height: auto;
     margin-right: 20px;
+}
+
+.battery-image {
+    width: auto; /* Set the width to 100% of the parent element */
+    height: 50px; /* Set the height to auto to maintain aspect ratio */
+    margin-right: 10px;
 }
 
 .info {
@@ -17,4 +23,26 @@
 
 .info-item {
     margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.location-item {
+    margin-bottom: 10px;
+}
+
+.item-property {
+    min-width: 55px;
+    display: inline-block;
+    padding: 5px 10px; /* Adjust as needed */
+    background-color: #C4CACA; /* Gray background */
+    margin-right: 10px;
+    margin-bottom: 5px;
+    text-align: center;
+    color: black; /* White text */
+    border-top-right-radius: 33px; /* Set the top right corner radius */
+    border-bottom-right-radius: 33px; /* Set the bottom right corner radius */
+    border: 1px solid transparent; /* 테두리 기본 설정 */
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.6); /* 흐림 효과 적용 */
 }
