@@ -110,6 +110,10 @@ const EntranceOrExit = () => {
 
     useEffect(() => {
         buttonTextRef.current = buttonText; // buttonText 상태가 변경될 때마다 ref를 업데이트
+
+        if ([entrance, exit].includes(buttonTextRef.current)) {
+            alert(`${buttonTextRef.current === entrance ? '출차':'입차'}가 완료되었습니다.`);
+        }
     }, [buttonText]);
 
     useEffect(() => {
