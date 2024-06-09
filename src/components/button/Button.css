@@ -1,6 +1,6 @@
 .park-button {
     width: 150px;
-    background-color: #7AEEF5; /* Green background */
+    background-color: rgba(37, 226, 237, 0.7);
     border: none; /* Remove border */
     color: black; /* White text color */
     font-weight: bold; /* Make the button text bold */
@@ -17,7 +17,7 @@
 }
 
 .park-button:hover {
-    background-color: #25e2ed; /* Change background color when hovering */
+    background-color: rgba(37, 226, 237, 1);
 }
 
 .park-button:disabled {
