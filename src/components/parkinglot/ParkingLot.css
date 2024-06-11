@@ -60,22 +60,22 @@
 이동 공간 section(이동 공간 1개)
  */
 .moving-section {
-    background-color: rgba(130, 210, 244, 0.9);
+    background-color: rgba(168, 185, 200, 0.9);
 }
 
 /*
 예상 이동 경로
  */
 .entrance-route {
-    background-color: rgba(251, 38, 38, 0.9);
+    background-color: rgba(190, 168, 172, 0.9);
 }
 
 .current-location {
-    background-color: rgba(66, 255, 85, 0.9);
+    background-color: rgba(255, 0, 0, 1);
 }
 
 .parking-space {
-    background-color: #D9D9D9;
+    background-color: rgba(204, 204, 204, 0.9);
 }
 
 /*
