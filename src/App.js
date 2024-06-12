@@ -1,19 +1,31 @@
 import React from 'react';
 import './App.css';
-import {RouteProvider} from "./components/context/RouteContext";
-import CarInfo from "./components/carinfo/CarInfo";
-import ParkingLot from './components/parkinglot/ParkingLot';
-import EntranceOrExit from "./components/button/Button";
+import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
+import ParkingPage from './components/parkingpage/ParkingPage';
+import HomePage from './components/homepage/HomePage'; // 가정: 홈 페이지 컴포넌트
+
+function MainLayout() {
+    return (
+        <div>
+            <Link to="/parkingpage">
+                <button>입차하기</button>
+            </Link>
+            <Routes>
+                <Route path="/" element={<HomePage/>}/>
+            </Routes>
+        </div>
+    );
+}
 
 function App() {
     return (
         <div className="App">
-            <header className="App-header">
-                <RouteProvider>
-                        <CarInfo/>
-                        <ParkingLot/>
-                </RouteProvider>
-            </header>
+            <Router>
+                <Routes>
+                    <Route path="/" element={<MainLayout/>}/>
+                    <Route path="/parkingpage" element={<ParkingPage/>}/>
+                </Routes>
+            </Router>
         </div>
     );
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import './CarInfo.css';
-import carImage from '../../img/tesla-model-y.png'; // Add your car image to the project
-import batteryImage from '../../img/battery.jpg';
+import carImage from '../../../img/tesla-model-y.png'; // Add your car image to the project
+import batteryImage from '../../../img/battery.jpg';
 
 const CarInfo = () => {
     return (
@@ -22,7 +22,7 @@ const CarInfo = () => {
                 </div>
             </div>
             <div className="location-item">
-                <span>세종대학교 대양 AI 센터 지하주차장</span>
+                <span><b>세종대학교 대양 AI 센터 지하주차장</b></span>
             </div>
         </div>
     )
