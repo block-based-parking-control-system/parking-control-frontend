@@ -5,11 +5,38 @@
     background-color: lightgray;
 }
 
+.mark-layout {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 500px;
+    height: 160px;
+    border-radius: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    background-color: white;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.sejong-image {
+    width: 150px;
+    height: auto;
+    margin-right: 50px;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    text-indent: -25px;
+}
+
 .button-layout {
     position: relative;
     justify-content: center;
     align-items: center;
-    width: 700px;
+    width: 500px;
     height: 370px;
     border-radius: 20px;
     margin-left: auto;
@@ -28,7 +55,7 @@
 
 .button-style {
     background-color: rgba(37, 226, 237, 0.7);
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
     border: none; /* Remove border */
     color: black; /* White text color */
     font-weight: bold; /* Make the button text bold */
@@ -45,25 +72,25 @@
 }
 
 .entrance-button, .exit-button {
-    width: 500px;
+    width: 400px;
 }
 
 .ticket-button, .app-info-button {
-    width: 180px;
+    width: 150px;
     height: 140px;
 }
 
 .ticket-button {
-    margin-right: 65px;
+    margin-right: 47px;
 }
 
 .app-info-button {
-    margin-left: 65px;
+    margin-left: 47px;
 }
 
 .button-style:hover {
     background-color: rgba(37, 226, 237, 1);
     box-shadow: none;
-    transform: translate(5px, 5px);
+    transform: translate(3px, 3px);
 
 }

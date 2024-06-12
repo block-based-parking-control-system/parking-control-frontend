@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
 import ParkingPage from './components/parkingpage/ParkingPage';
+import sejongImage from './img/sejong-univ.jpg';
 import HomePage from './components/homepage/HomePage'; // 가정: 홈 페이지 컴포넌트
 
 function MainLayout() {
@@ -11,7 +12,10 @@ function MainLayout() {
     return (
         <div>
             <div className="mark-layout">
-
+                <img src={sejongImage} alt="sejong-univ" className="sejong-image"/>
+                <div className="title">
+                    <span>Sejong Univ Parking Helper<br/>(어플 이름 변경할 것)</span>
+                </div>
             </div>
             <div className="button-layout">
                 <div>
@@ -26,10 +30,10 @@ function MainLayout() {
                 </div>
                 <div className="horizon-layout">
                     <Link to="/ticket">
-                        <button className="button-style ticket-button">주차권 발행하기<br/>(요금 정산)</button>
+                        <button className="button-style ticket-button">요금 계산하기</button>
                     </Link>
                     <Link to="/info">
-                        <button className="button-style app-info-button">앱 정보</button>
+                        <button className="button-style app-info-button">프로필 보기</button>
                     </Link>
                 </div>
             </div>

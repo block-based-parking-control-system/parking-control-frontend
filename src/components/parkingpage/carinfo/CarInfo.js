@@ -10,7 +10,7 @@ const CarInfo = () => {
                 <img src={carImage} alt="Tesla Model Y" className="car-image"/>
                 <div className="info">
                     <div className="info-item">
-                        <span>Tesla Model Y</span>
+                        <span><b>Tesla Model Y</b></span>
                     </div>
                     <div className="info-item info-item-middle">
                         <span>중형 SUV</span>
