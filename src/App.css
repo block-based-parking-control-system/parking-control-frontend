@@ -1,5 +1,69 @@
 .App {
+    height: 100vh;
     text-align: center;
     padding: 20px;
     background-color: lightgray;
+}
+
+.button-layout {
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: 700px;
+    height: 370px;
+    border-radius: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.horizon-layout {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.button-style {
+    background-color: rgba(37, 226, 237, 0.7);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+    border: none; /* Remove border */
+    color: black; /* White text color */
+    font-weight: bold; /* Make the button text bold */
+    white-space: pre;
+    padding: 15px 0; /* Padding */
+    text-align: center; /* Center the text */
+    text-decoration: none; /* Remove underline */
+    display: inline-block;
+    font-size: 16px;
+    margin: 20px 2px;
+    border-radius: 33px; /* Make the button corners round */
+    cursor: pointer; /* Change cursor to pointer when hovering over the button */
+    transition: background-color 0.4s; /* Transition effect */
+}
+
+.entrance-button, .exit-button {
+    width: 500px;
+}
+
+.ticket-button, .app-info-button {
+    width: 180px;
+    height: 140px;
+}
+
+.ticket-button {
+    margin-right: 65px;
+}
+
+.app-info-button {
+    margin-left: 65px;
+}
+
+.button-style:hover {
+    background-color: rgba(37, 226, 237, 1);
+    box-shadow: none;
+    transform: translate(5px, 5px);
+
 }
