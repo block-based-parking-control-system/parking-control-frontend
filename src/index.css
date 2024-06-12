@@ -1,0 +1,25 @@
+@font-face {
+    font-family: 'BaeminHanna';
+    src: url('../public/fonts/BMHANNAPro.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BaeminHanna11years';
+    src: url('../public/fonts/BMHANNA_11yrs_ttf.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BaeminHannaAir';
+    src: url('../public/fonts/BMHANNAAir_ttf.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 전역 폰트 설정 */
+body {
+    font-family: 'BaeminHannaAir', sans-serif;
+}
