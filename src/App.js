@@ -30,10 +30,17 @@ function MainLayout() {
                 </div>
                 <div className="horizon-layout">
                     <Link to="/ticket">
-                        <button className="button-style ticket-button">요금 계산하기</button>
+                        <button className="button-style ticket-button">주차 요금<br/>계산하기</button>
                     </Link>
                     <Link to="/info">
-                        <button className="button-style app-info-button">프로필 보기</button>
+                        <button className="button-style app-info-button">내 프로필 보기</button>
+                    </Link>
+                </div>
+            </div>
+            <div className="single-button-layout">
+                <div>
+                    <Link to="/map">
+                        <button className="button-style map-button">내 주변 주차장 보기</button>
                     </Link>
                 </div>
             </div>

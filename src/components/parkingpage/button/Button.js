@@ -5,6 +5,7 @@ import './Button.css';
 const EntranceOrExit = () => {
     const entrance = '주  행  하  기';
     const entranceProcessing = '주    행    중';
+    const entranceComplete = "주  차  완  료";
 
     const [sse, setSse] = useState(null);
     const [buttonText, setButtonText] = useState(entrance); //버튼의 텍스트 관리
@@ -82,7 +83,7 @@ const EntranceOrExit = () => {
                 eventSource.close();
                 setSse(null);
                 // setButtonText(buttonTextRef.current === entranceProcessing ? exit : entrance);
-                setButtonText(entrance);
+                setButtonText(entranceComplete);
                 setButtonDisabled(false);
             };
         } else {
