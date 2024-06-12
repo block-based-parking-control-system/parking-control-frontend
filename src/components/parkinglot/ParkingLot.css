@@ -1,7 +1,25 @@
 /*
 전체 주차장
  */
+.parking-lot-integration {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    height: 700px;
+    border-radius: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
 .parking-lot {
+    flex-direction: column;
+    position: absolute;
+    top: 30px;
+    left: auto;
 }
 
 /*
@@ -97,20 +115,14 @@ middle-block-section, edge-block-section 내에 존재하는
 
 .entrance, .exit {
     position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 18px;
-    margin-top: 10px;
+    bottom: 165px;
 }
 
 .entrance {
-    left: 0;
-    transform: none;
+    right: 30px;
 }
 
 .exit {
-    right: 0;
-    left: auto;
-    transform: none;
+    left: 30px;
 }
+

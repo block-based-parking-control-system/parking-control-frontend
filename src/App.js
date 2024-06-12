@@ -12,7 +12,6 @@ function App() {
                 <RouteProvider>
                         <CarInfo/>
                         <ParkingLot/>
-                        <EntranceOrExit/>
                 </RouteProvider>
             </header>
         </div>

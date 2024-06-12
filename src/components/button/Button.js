@@ -3,10 +3,8 @@ import {RouteContext} from '../context/RouteContext';
 import './Button.css';
 
 const EntranceOrExit = () => {
-    const entrance = '입          차';
-    const entranceProcessing = '입    차    중';
-    const exit = '출          차';
-    const exitProcessing = '출    차    중';
+    const entrance = '주  행  하  기';
+    const entranceProcessing = '주    행    중';
 
     const [sse, setSse] = useState(null);
     const [buttonText, setButtonText] = useState(entrance); //버튼의 텍스트 관리
@@ -20,14 +18,8 @@ const EntranceOrExit = () => {
 
     const handleClick = () => {
         if (!sse) {
-            let eventSource;
-            if (buttonText === entrance) {
-                eventSource = new EventSource('http://localhost:8080/api/car/entrance');
-                setButtonText(entranceProcessing);
-            } else {
-                eventSource = new EventSource('http://localhost:8080/api/car/exit');
-                setButtonText(exitProcessing);
-            }
+            let eventSource = new EventSource('http://localhost:8080/api/car/entrance');
+            setButtonText(entranceProcessing);
 
             setSse(eventSource);
             setButtonDisabled(true);
@@ -89,13 +81,15 @@ const EntranceOrExit = () => {
 
                 eventSource.close();
                 setSse(null);
-                setButtonText(buttonTextRef.current === entranceProcessing ? exit : entrance);
+                // setButtonText(buttonTextRef.current === entranceProcessing ? exit : entrance);
+                setButtonText(entrance);
                 setButtonDisabled(false);
             };
         } else {
             sse.close();
             setSse(null);
-            setButtonText(buttonTextRef.current === entranceProcessing ? exit : entrance);
+            // setButtonText(buttonTextRef.current === entranceProcessing ? exit : entrance);
+            setButtonText(entranceProcessing);
             setButtonDisabled(false);
         }
     };
@@ -108,16 +102,16 @@ const EntranceOrExit = () => {
         };
     }, [sse]);
 
-    useEffect(() => {
-        buttonTextRef.current = buttonText; // buttonText 상태가 변경될 때마다 ref를 업데이트
-
+/*    useEffect(() => {
         if ([entrance, exit].includes(buttonTextRef.current)) {
             alert(`${buttonTextRef.current === entrance ? '출차':'입차'}가 완료되었습니다.`);
         }
-    }, [buttonText]);
+    }, [buttonText]);*/
 
     useEffect(() => {
-        if ([entranceProcessing, exitProcessing].includes(buttonText)) {
+        // buttonTextRef.current = buttonText; // buttonText 상태가 변경될 때마다 ref를 업데이트
+
+        if (buttonText === entranceProcessing) {
             const id = setInterval(() => {
                 setSeconds((seconds) => seconds + 1);
             }, 1000);
@@ -134,7 +128,7 @@ const EntranceOrExit = () => {
             <button className="park-button" onClick={handleClick} disabled={buttonDisabled}>
                 {buttonText}
             </button>
-            {([entranceProcessing, exitProcessing].includes(buttonText)) && <div>소요 시간: {seconds}초</div>}
+            {(buttonText === entranceProcessing) && <div>소요 시간: {seconds}초</div>}
         </div>
     )
 }

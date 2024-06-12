@@ -1,6 +1,7 @@
 import React, {useContext, useState} from 'react';
 import {RouteContext} from "../context/RouteContext";
 import './ParkingLot.css'
+import EntranceOrExit from "../button/Button";
 
 const ParkingLot = () => {
     const rows = 11;
@@ -99,15 +100,24 @@ const ParkingLot = () => {
     }
 
     return (
-        <div className="parking-lot">
-            <div className="edge-parking-lot">
-                {createUpperParkingLot()}
+        <div className="parking-lot-integration">
+            <div className="exit">
+                <span>출구 <i className="fas fa-arrow-left"></i></span>
             </div>
-            <div className="middle-parking-lot">
-                {createMiddleParkingLot()}
+            <div className="parking-lot">
+                <div className="edge-parking-lot">
+                    {createUpperParkingLot()}
+                </div>
+                <div className="middle-parking-lot">
+                    {createMiddleParkingLot()}
+                </div>
+                <div className="edge-parking-lot">
+                    {createLowerParkingLot()}
+                </div>
+                <EntranceOrExit/>
             </div>
-            <div className="edge-parking-lot">
-                {createLowerParkingLot()}
+            <div className="entrance">
+                <span><i className="fas fa-arrow-left"></i> 입구</span>
             </div>
         </div>
     );

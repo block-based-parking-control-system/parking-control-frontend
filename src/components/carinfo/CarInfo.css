@@ -3,22 +3,33 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
+    /*border: 2px solid black;*/
+    border-radius: 20px;
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+
 }
 
 .car-image {
     width: 170px;
     height: auto;
-    margin-right: 20px;
+    margin-right: 50px;
 }
 
 .battery-image {
     width: auto; /* Set the width to 100% of the parent element */
-    height: 50px; /* Set the height to auto to maintain aspect ratio */
+    height: 30px; /* Set the height to auto to maintain aspect ratio */
     margin-right: 10px;
 }
 
 .info {
     text-align: left;
+    /*border: 2px solid black;*/
+    /*border-radius: 20px;*/
+    padding: 15px;
 }
 
 .info-item {
@@ -28,8 +39,23 @@
     justify-content: start;
 }
 
+.info-item-middle {
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+}
+
 .location-item {
-    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 500px;
+    height: 50px;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 }
 
 .item-property {
