@@ -4,7 +4,6 @@ import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
 import MapPage from './components/mappage/MapPage';
 import ParkingPage from './components/parkingpage/ParkingPage';
 import sejongImage from './img/sejong-univ.jpg';
-import HomePage from './components/homepage/HomePage'; // 가정: 홈 페이지 컴포넌트
 
 function MainLayout() {
     const entrance = "입   차   하   기";

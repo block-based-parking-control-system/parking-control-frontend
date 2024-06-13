@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext} from 'react';
 import {RouteContext} from "../context/RouteContext";
 import './ParkingLot.css'
 import EntranceOrExit from "../button/Button";

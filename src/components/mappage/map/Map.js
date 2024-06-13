@@ -1,20 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import ReactDOM from 'react-dom/client';
 import './Map.css';
-import {Link} from "react-router-dom";
-import {findAllByDisplayValue} from "@testing-library/react";
-import {useNavigate} from 'react-router-dom';
 import Modal from '../modal/Modal';
-
-const CustomOverlayContent = () => {
-    <div className="custom-overlay">
-        <div className="overlay-title">세종대학교 대양 AI 센터 지하주차장</div>
-        <div className="overlay-description">103/152</div>
-        <Link to="/entrance/parking">
-            <button className="overlay-button">여기에 주차하기</button>
-        </Link>
-    </div>
-}
 
 const Map = () => {
     const [isModalOpen, setIsModalOpen] = useState(true);
@@ -62,10 +48,8 @@ const Map = () => {
                         <button class="overlay-button" onclick="window.navigateToParkingPage()">여기에 주차하기</button>
                     </div>
                 `;
-                const overlayPosition = markerPosition;
-
                 const customOverlay = new window.kakao.maps.CustomOverlay({
-                    position: overlayPosition,
+                    position: markerPosition,
                     content: content,
                     yAnchor: 1.5
                 });
