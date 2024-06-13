@@ -36,9 +36,9 @@
 }
 
 .overlay-description {
+    color: red;
     margin-bottom: 10px;
     font-size: 14px;
-    color: #555;
 }
 
 .overlay-button {
