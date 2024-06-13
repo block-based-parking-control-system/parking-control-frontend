@@ -1,6 +1,18 @@
-import React, { useEffect } from 'react';
+import React, {useEffect} from 'react';
+import ReactDOM from 'react-dom/client';
 import './Map.css';
-import { Helmet, HelmetProvider } from 'react-helmet-async';
+import {Link} from "react-router-dom";
+import {findAllByDisplayValue} from "@testing-library/react";
+
+const CustomOverlayContent = () => {
+    <div className="custom-overlay">
+        <div className="overlay-title">세종대학교 대양 AI 센터 지하주차장</div>
+        <div className="overlay-description">103/152</div>
+        <Link to="/entrance/parking">
+            <button className="overlay-button">여기에 주차하기</button>
+        </Link>
+    </div>
+}
 
 const Map = () => {
     useEffect(() => {
@@ -38,6 +50,23 @@ const Map = () => {
                     position: markerPosition
                 });
                 marker.setMap(map);
+
+                const content = `
+                    <div class="custom-overlay">
+                        <div class="overlay-title">세종대학교 대양 AI 센터 지하주차장</div>
+                        <div class="overlay-description">103/152</div>
+                        <button class="overlay-button" onclick="window.handleOverlayButtonClick()">여기에 주차하기</button>
+                    </div>
+                `;
+                const overlayPosition = markerPosition; // Same position as the marker
+
+                const customOverlay = new window.kakao.maps.CustomOverlay({
+                    position: overlayPosition,
+                    content: content,
+                    yAnchor: 1.5 // Adjust this value to position the text above the marker
+                });
+
+                customOverlay.setMap(map);
             } else {
                 console.error('Kakao maps library is not loaded.');
             }
@@ -52,10 +81,14 @@ const Map = () => {
     }, []);
 
     return (
-            <div className="map-integration">
-                <div id="map"></div>
-            </div>
+        <div className="map-integration">
+            <div id="map"></div>
+        </div>
     );
+};
+
+window.handleOverlayButtonClick = () => {
+    alert('주차하실 위치를 선택하셨습니다.');
 };
 
 export default Map;
