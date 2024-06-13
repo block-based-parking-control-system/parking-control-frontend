@@ -1,6 +1,6 @@
 .park-button {
     width: 150px;
-    background-color: rgba(37, 226, 237, 0.7);
+    background-color: ghostwhite;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
     border: none; /* Remove border */
     color: black; /* White text color */
@@ -18,7 +18,7 @@
 }
 
 .park-button:hover {
-    background-color: rgba(37, 226, 237, 1);
+    background-color: lightgray;
     box-shadow: none;
     transform: translate(3px, 3px);
 
@@ -26,7 +26,7 @@
 
 .park-button:disabled, .park-button:disabled:hover {
     opacity: 0.5;
-    background-color: #7AEEF5; /* Change background color to gray */
+    background-color: lightgray; /* Change background color to gray */
     cursor: default; /* Change cursor to default */
     box-shadow: none;
     transform: translate(3px, 3px);

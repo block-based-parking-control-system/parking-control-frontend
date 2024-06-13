@@ -78,8 +78,6 @@
 
 
 .button-style {
-    /*TODO: 둘 중 선택*/
-    /*background-color: rgba(37, 226, 237, 0.7);*/
     background-color: ghostwhite;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
     border: none; /* Remove border */
@@ -119,8 +117,6 @@
 }
 
 .button-style:hover {
-    /*TODO: 둘 중 선택*/
-    /*background-color: rgba(37, 226, 237, 1);*/
     background-color: lightgray;
     box-shadow: none;
     transform: translate(3px, 3px);
