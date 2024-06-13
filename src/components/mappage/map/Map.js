@@ -1,9 +1,10 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import ReactDOM from 'react-dom/client';
 import './Map.css';
 import {Link} from "react-router-dom";
 import {findAllByDisplayValue} from "@testing-library/react";
 import {useNavigate} from 'react-router-dom';
+import Modal from '../modal/Modal';
 
 const CustomOverlayContent = () => {
     <div className="custom-overlay">
@@ -16,6 +17,8 @@ const CustomOverlayContent = () => {
 }
 
 const Map = () => {
+    const [isModalOpen, setIsModalOpen] = useState(true);
+
     useEffect(() => {
         const loadScript = () => {
             const script = document.createElement('script');
@@ -85,9 +88,17 @@ const Map = () => {
         window.location.href = '/entrance/parking';
     };
 
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+    };
+
     return (
         <div className="map-integration">
             <div id="map"></div>
+
+            <Modal isOpen={isModalOpen} onClose={handleCloseModal} title="주차장 탐색">
+                <p>가장 가까운 주차장을 찾았습니다.</p>
+            </Modal>
         </div>
     );
 };
