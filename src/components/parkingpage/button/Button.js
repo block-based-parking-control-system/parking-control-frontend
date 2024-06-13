@@ -1,6 +1,7 @@
-import React, {useEffect, useState, useRef, useContext} from 'react';
+import React, {useEffect, useState, useContext} from 'react';
 import {RouteContext} from '../context/RouteContext';
 import './Button.css';
+import Modal from '../modal/Modal';
 
 const EntranceOrExit = () => {
     const entrance = '주  행  하  기';
@@ -10,12 +11,14 @@ const EntranceOrExit = () => {
     const [sse, setSse] = useState(null);
     const [buttonText, setButtonText] = useState(entrance); //버튼의 텍스트 관리
     const [buttonDisabled, setButtonDisabled] = useState(false); // 버튼의 활성화 상태 관리
-    const buttonTextRef = useRef(buttonText); // buttonText 상태의 최신 값을 참조하는 ref
 
     const {updateRoute, updateParkingSpace, updateLocation, resetRoute} = useContext(RouteContext);
 
     const [seconds, setSeconds] = useState(0);
     const [intervalId, setIntervalId] = useState(null);
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
 
     const handleClick = () => {
         if (!sse) {
@@ -85,6 +88,7 @@ const EntranceOrExit = () => {
                 // setButtonText(buttonTextRef.current === entranceProcessing ? exit : entrance);
                 setButtonText(entranceComplete);
                 setButtonDisabled(false);
+                setIsModalOpen(true);
             };
         } else {
             sse.close();
@@ -103,15 +107,7 @@ const EntranceOrExit = () => {
         };
     }, [sse]);
 
-/*    useEffect(() => {
-        if ([entrance, exit].includes(buttonTextRef.current)) {
-            alert(`${buttonTextRef.current === entrance ? '출차':'입차'}가 완료되었습니다.`);
-        }
-    }, [buttonText]);*/
-
     useEffect(() => {
-        // buttonTextRef.current = buttonText; // buttonText 상태가 변경될 때마다 ref를 업데이트
-
         if (buttonText === entranceProcessing) {
             const id = setInterval(() => {
                 setSeconds((seconds) => seconds + 1);
@@ -124,12 +120,20 @@ const EntranceOrExit = () => {
         }
     }, [buttonText]);
 
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+    };
+
     return (
         <div>
             <button className="park-button" onClick={handleClick} disabled={buttonDisabled}>
                 {buttonText}
             </button>
             {(buttonText === entranceProcessing) && <div>소요 시간: {seconds}초</div>}
+
+            <Modal isOpen={isModalOpen} onClose={handleCloseModal} title="주차 완료">
+                <p>주차가 성공적으로 완료되었습니다.</p>
+            </Modal>
         </div>
     )
 }
