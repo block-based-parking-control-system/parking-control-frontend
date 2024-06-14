@@ -28,7 +28,7 @@
 .middle-parking-lot {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    grid-gap: 1px;
+    grid-gap: 2px;
     margin: 0 auto;
     width: fit-content;
     position: relative;
@@ -41,7 +41,7 @@
 .edge-parking-lot {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    grid-gap: 1px;
+    grid-gap: 2px;
     margin: 0 auto;
     width: fit-content;
     position: relative;
@@ -115,7 +115,7 @@ middle-block-section, edge-block-section 내에 존재하는
 
 .entrance, .exit {
     position: absolute;
-    bottom: 165px;
+    bottom: 155px;
 }
 
 .entrance {
