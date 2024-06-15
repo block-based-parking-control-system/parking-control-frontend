@@ -14,7 +14,7 @@ function MainLayout() {
             <div className="mark-layout">
                 <img src={sejongImage} alt="sejong-univ" className="sejong-image"/>
                 <div className="title">
-                    <span>Sejong Univ Parking Helper<br/>(어플 이름 변경할 것)</span>
+                    <span>Parking Management System</span>
                 </div>
             </div>
             <div className="button-layout">
